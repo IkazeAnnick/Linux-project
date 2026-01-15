@@ -6,8 +6,16 @@ import users from './userModel.js';
 
 app.use(express.json());
 
-app.get("/", (req,res) =>{
-    res.send("Message")
+app.get("/", async(req,res) =>{
+    res.send("Message sent by Anick's app");
+    // try {
+    //     const users = await 
+    // } catch (error) {
+    //      console.log(error);
+    //     res.status(500).json({
+    //         "message":"Error occured"
+    //     })
+    // }
 })
 app.post("/register",(req,res) =>{
     console.log(req.body);
@@ -29,6 +37,30 @@ app.post("/register",(req,res) =>{
         })
     }
 })
+// app.delete("/users/:id",async (req,res) =>{
+//     const { id } = req.params;
+
+//     try {
+//         const deletedUser = await users.findByIdAndDelete(id);
+        
+//         if(!deletedUser) {
+//             return res.status(404).json({
+//                 message: "User not found"
+//             });
+//         }
+//         return res.status(200).json({
+//             message: "User deleted successfullly",
+//             deletedUser
+//         });
+//     } catch (error) {
+//         console.log(error);
+//         res.status(500).json({
+//             message: "Error occured"
+//         });
+//     }
+// })
 app.listen(3000, () =>{
     console.log("successful")
 })
+
+
